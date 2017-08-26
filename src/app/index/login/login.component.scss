@@ -1,0 +1,10 @@
+#login {
+    background-image: url("../img/login.jpg");
+    background-size: cover;
+    #login-div {
+        width: 663px;
+        height: 382px;
+        background-image: url("../img/#{$img_folder}/logindiv.png");
+        background-size: cover;
+    }
+}

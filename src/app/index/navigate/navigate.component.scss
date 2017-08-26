@@ -1,0 +1,130 @@
+$title_height: 40px;
+
+@mixin abc {
+
+    .head {
+        height: $title_height;
+        position: absolute;
+        width: 100%;
+        background-color: #fff;
+        top: 0;
+        text-align: center;
+        > span {
+            line-height: $title_height;
+            font-size: 16px;
+        }
+        > a {
+            position: absolute;
+            right: 10px;
+            top: 12px;
+            font-size: 14px;
+        }
+    }
+    .grid {
+        height: 100%;
+    }
+}
+
+.nav-content {
+    background-image: url("../../../assets/img/index.jpg");
+    background-size: cover;
+
+    padding-top: 45px;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+
+    .map {
+        height: 100%;
+        position: relative;
+        .copyright {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 50px;
+            color: #fff;
+            font-family: Arial Regular sans-serif;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        .module-icon {
+
+            position: absolute;
+            width: 1100px;
+            left: 0;
+            right: 0;
+            top: 12%;
+            margin: auto;
+            text-align: center;
+            .box1, .box2 {
+                margin: 3px;
+                position: relative;
+                display: inline-block;
+                img {
+                    left: 0;
+                    right: 0;
+                    margin: 0;
+                }
+            }
+            .box1 {
+                width: 183px;
+                cursor: pointer;
+            }
+            .box2 {
+                width: 379px;
+                cursor: pointer;
+            }
+        }
+
+        .box {
+            height: 100px;
+            width: 300px;
+            margin: 10px 6px;
+            display: inline-block;
+            border: 1px solid #000;
+        }
+    }
+
+}
+
+ul.navigate {
+    li {
+        float: left;
+        list-style: none;
+        padding: 2px 10px;
+        height: 23px;
+        line-height: 23px;
+        font-size: 14px;
+    }
+    li.child {
+        border: 1px solid #ccc;
+        background-color: #fff;
+        border-left: none;
+        padding-left: 20px;
+        padding-right: 20px;
+        position: relative;
+
+        span {
+            transition: .7s;
+            width: 0;
+        }
+        a {
+            width: 50px;
+            text-decoration: none;
+            cursor: pointer;
+            color: #999;
+            padding: 0 10px;
+        }
+
+    }
+
+    li.parent {
+        background-color: #00acc1;
+        border-radius: 10px 0 0 10px;
+        border: 1px solid #ccc;
+        color: #fff;
+        cursor: pointer;
+    }
+
+}

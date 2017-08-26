@@ -1,0 +1,85 @@
+#mdfpswd-div {
+    .modal-content {
+        border-radius: 0;
+        top: 100px;
+        left: 50px;
+        width: 500px;
+    }
+    .title {
+        text-align: center;
+        font-size: 24px;
+        font-weight: bold;
+        margin: 25px 0 10px;
+        letter-spacing: 3px;
+        color: #999;
+    }
+
+    table {
+        margin: 5px 30px;
+        tr {
+            margin: 15px 10px;
+            display: inline-block;
+            &.errmsg {
+                margin: 10px 10px 8px;
+            }
+            td {
+                display: inline-block;
+                margin: 0 10px;
+                height: 30px;
+                position: relative;
+                .tip {
+                    position: absolute;
+                    top: -20px;
+                    font-size: 12px;
+                    color: #8899AA;
+                }
+                &:first-child {
+                    font-size: 17px;
+                    width: 80px;
+                    line-height: 30px;
+                    color: #8899AA;
+                }
+                &:last-child {
+                    border: 1px solid #8899AA;
+                    border-radius: 3px;
+                    width: 280px;
+                    padding: 2px;
+                    &.btns {
+                        border: none;
+                        top: -10px;
+                    }
+                    input {
+                        border: none;
+                        width: 260px;
+                        outline: none;
+                        height: 25px;
+                        padding-left: 10px;
+                    }
+                }
+            }
+        }
+    }
+
+    .btn {
+        border-radius: 2px;
+        width: 120px;
+        color: #fff;
+
+    }
+
+    .okbtn {
+        background: #00AAE8;
+        float: left;
+        &:hover {
+            background: #0495e4;
+        }
+    }
+
+    .cancelbtn {
+        background: #ACACAC;
+        float: right;
+        &:hover {
+            background: #999;
+        }
+    }
+}

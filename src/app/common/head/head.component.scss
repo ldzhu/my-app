@@ -1,0 +1,174 @@
+$img_folder: cn;
+
+$min-width: 1400px;
+$head_height: 45px;
+$bottom_border_height: 4px;
+
+@mixin nav-li {
+    display: inline-block;
+    height: $head_height;
+    line-height: $head_height - $bottom_border_height;
+    font-size: 16px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+@mixin center {
+    display: inline-block;
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+.pon-head.is-absolute {
+    position: absolute;
+}
+
+.pon-head {
+    height: $head_height;
+    background-color: #282c36;
+    position: relative;
+    top: 0;
+    width: 100%;
+    min-width: $min-width;
+    .map_focus {
+        @include center;
+        width: 300px;
+        height: $head_height;;
+        text-align: left;
+        > span.bkg {
+            position: absolute;
+            transition: left 1s;
+            border-bottom: $bottom_border_height solid #00a9e8;
+            background-color: #000;
+            width: 50%;
+            display: inline-block;
+            height: $head_height;
+            left: 0;
+            &.active {
+                left: 150px;
+            }
+        }
+        > span.content {
+            @include nav-li;
+            position: relative;
+            width: 100%;
+            a {
+                @include nav-li;
+                width: 150px;
+                color: #fff;
+                float: left;
+                cursor: pointer;
+            }
+        }
+    }
+
+    ul {
+        @include center;
+        height: 100%;
+        li {
+            @include nav-li;
+            padding: 0 20px;
+            a {
+                outline: none;
+                color: #fff;
+                height: $head_height;
+                display: inline-block;
+            }
+            &.active {
+                background-color: #000;
+                border-bottom: $bottom_border_height solid #00a9e8;
+                a {
+                    color: #fff;
+                    //animation: f-bounceDown 1s;
+                }
+            }
+        }
+    }
+    a {
+        text-decoration: none;
+    }
+    .logo {
+        height: $head_height;;
+        width: 300px;
+        display: inline-block;
+        color: #fff;
+        position: absolute;
+        left: 0;
+        z-index: 10;
+        > div.main {
+            margin-left: 30px;
+            background-image: url("../../../assets/img/title.png");
+        }
+        > div {
+            margin-left: 5px;
+            height: 45px;
+            background-repeat: no-repeat;
+        }
+        > a {
+            margin-left: 5px;
+            height: 45px;
+            background-repeat: no-repeat;
+            display: inline-block;
+            width: 137px;
+            cursor: pointer;
+        }
+    }
+    .logo2 {
+        height: $head_height;;
+        width: 81px;
+        position: absolute;
+        top: -3px;
+        right: 250px;
+        background-image: url("../../../assets/img/title2.png");
+    }
+    .login_info {
+        position: absolute;
+        right: 50px;
+        display: inline-block;
+        line-height: $head_height;
+
+        a.name {
+            color: #fff;
+            cursor: default;
+        }
+
+        a {
+            padding: 0 6px 0 5px;
+            border-right: 1px solid #9e9e9e;
+            cursor: pointer;
+
+        }
+        a:last-child {
+            border-right: none;
+        }
+
+    }
+
+    .t1 {
+        background-image: url("../../../assets/img/t1.png");
+    }
+    .t2 {
+        background-image: url("../../../assets/img/t2.png");
+    }
+    .t3 {
+        background-image: url("../../../assets/img/t3.png");
+    }
+    .t4 {
+        background-image: url("../../../assets/img/t4.png");
+    }
+    .t5 {
+        background-image: url("../../../assets/img/t5.png");
+    }
+    .t6 {
+        background-image: url("../../../assets/img/t6.png");
+    }
+    .t7 {
+        background-image: url("../../../assets/img/t7.png");
+    }
+    .t8 {
+        background-image: url("../../../assets/img/t8.png");
+    }
+}
