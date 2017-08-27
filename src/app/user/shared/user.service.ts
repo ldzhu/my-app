@@ -3,15 +3,16 @@ import {Http} from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
 
+import {UrlService} from '../../common/service/url.service';
+import {URL_CONST} from '../../common/const/url.consts';
+
 @Injectable()
 export class UserService {
-    private sysUserUrl = 'http://10.170.3.1:8080/user-manage/allUsers.do';
-
     constructor(private http: Http) {
     }
 
     getSysUsers(): Promise<any> {
-        return this.http.get(this.sysUserUrl)
+        return this.http.get(UrlService.getURL(URL_CONST.allUsers))
             .toPromise()
             .then(response => response.json())
             .catch(error => Promise.reject(error.message || error));

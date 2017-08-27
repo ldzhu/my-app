@@ -1,4 +1,5 @@
 import {Component, OnInit, Input} from '@angular/core';
+import {Title} from '@angular/platform-browser';
 
 @Component({
     selector: 'app-user',
@@ -8,13 +9,23 @@ import {Component, OnInit, Input} from '@angular/core';
 export class UserComponent implements OnInit {
     @Input() navigateOptions: any;
 
-    constructor() { }
+    public constructor(private titleService: Title) {
+    }
 
     ngOnInit() {
+        this.setTitle('用户管理');
+        this.setOptions();
+    }
+
+    public setTitle(newTitle: string) {
+        this.titleService.setTitle(newTitle);
+    }
+
+    public setOptions() {
         this.navigateOptions = {
             mNo: 5,
             mName: '用户管理',
-            isAbsolute : true,
+            isAbsolute: true,
             menu: [{
                 name: '系统用户',
                 routerLink: 'sys-user'
