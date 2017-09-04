@@ -1,1 +1,6 @@
-在线用户
+<div i18n="在线用户模块标题">在线用户</div>
+<kendo-fiberhome-chart chartId="onlineUserChart" [options]="onlineUserChartOption"
+                       (chart)="afterOnlineUserChartInit($event)"></kendo-fiberhome-chart>
+
+<kendo-fiberhome-chart chartId="sysUserChart" [options]="sysUserChartOption"
+                       (chart)="afterSysUserChartInit($event)"></kendo-fiberhome-chart>
