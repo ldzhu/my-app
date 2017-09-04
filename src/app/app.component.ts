@@ -11,6 +11,6 @@ export class AppComponent implements OnInit {
   title = 'app';
 
   ngOnInit() {
-    console.log(jQuery);
+    // console.log(jQuery);
   }
 }

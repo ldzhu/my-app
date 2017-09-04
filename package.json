@@ -15,11 +15,9 @@
         "pree2e-custom": "webdriver-manager update --standalone false --gecko false --quiet",
         "e2e-custom": "protractor ./protractor.conf.js",
         "i18n-custom": "./node_modules/.bin/ng-xi18n --i18nFormat=xlf",
-
         "i18n:extract": "./node_modules/.bin/ng-xi18n --i18nFormat=xlf",
         "i18n:create": "cd src/i18n && copy /y .\\messages.xlf .\\messages.zh-CN.xlf && copy /y .\\messages.xlf .\\messages.en-US.xlf",
         "i18n:kendo-translate": "./node_modules/.bin/kendo-translate src/i18n/messages.zh-CN.xlf --locale zh-CN"
-
     },
     "private": true,
     "dependencies": {
@@ -74,7 +72,6 @@
         "karma-jasmine": "~1.1.0",
         "karma-jasmine-html-reporter": "^0.2.2",
         "less-loader": "^4.0.5",
-        "node-sass": "^4.5.3",
         "postcss-loader": "^1.3.3",
         "postcss-url": "^5.1.2",
         "protractor": "~5.1.2",
