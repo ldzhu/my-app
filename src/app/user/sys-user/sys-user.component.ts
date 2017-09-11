@@ -9,12 +9,21 @@ import {UserService} from '../shared/user.service';
     styleUrls: ['./sys-user.component.scss']
 })
 export class SysUserComponent implements OnInit {
+    decimal: number = 42.123;
+    int: number = 42;
+    stringNumber: string = '42.123';
+
+    date: Date = new Date();
+    milliseconds: number = this.date.getTime();
+    stringDate: string = '01/02/2011';
+
     constructor(private userService: UserService) {
     }
 
     @Input() sysUsers: SysUser[];
 
     ngOnInit() {
+        this.date = new Date();
         this.userService.getSysUsers()
             .then(res => {
                 this.sysUsers = res.data;

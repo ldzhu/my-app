@@ -35,25 +35,24 @@
     e2e测试：[angular/protractor](https://github.com/angular/protractor)？暂未研究
     
 - 国际化
+i18n-kendo-translate之前需要将messages.zh-CN.xlf的trans-unit[添加\<target\/\>节点](https://github.com/telerik/kendo-angular-messages/issues/44);
 
+- build打包结果，loadChildren懒加载module时，useHash:false时，刷新会有404。原因：路由和 index.html访问的问题
+[解决办法](https://stackoverflow.com/questions/35284988/angular-2-404-error-occur-when-i-refresh-through-browser);
+[解决办法](https://github.com/angular-ui/ui-router/wiki/Frequently-Asked-Questions#how-to-configure-your-server-to-work-with-html5mode);
+需要在web容器里面加配置
 
-```
-ng xi18n <options...>
-  Extracts i18n messages from source code.
-  --i18n-format (String) (Default: xlf) Output format for the generated file.
-    aliases: -f <value>, -xmb (--i18n-format=xmb), -xlf (--i18n-format=xlf), --xliff (--i18n-format=xlf), --i18nFormat <value>
-  --output-path (Path) (Default: null) Path where output will be placed.
-    aliases: -op <value>, --outputPath <value>
-  --verbose (Boolean) (Default: false) Adds more details to output logging.
-    aliases: --verbose
-  --progress (Boolean) (Default: true) Log progress to the console while running.
-    aliases: --progress
-  --app (String) Specifies app name to use.
-    aliases: -a <value>, -app <value>
-  --locale (String) Specifies the source language of the application.
-    aliases: -l <value>, --locale <value>
-  --out-file (String) Name of the file to output.
-    aliases: -of <value>, --outFile <value>
+```java
+Java EE
+In web.xml
+
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+	<error-page>
+		<error-code>404</error-code>
+		<location>/</location>
+	</error-page>
+</web-app>
 ```
 
 - CSS模块化

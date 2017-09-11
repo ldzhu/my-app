@@ -9,7 +9,7 @@ export class UrlService {
     }
 
     static getURL(url: string) {
-        return environment.urlHead + url;
+        return environment.mockData ? url : (environment.urlHead + url);
     }
 
     static getURLSuffix(name: string) {

@@ -5,5 +5,6 @@
 
 export const environment = {
     production: false,
-    urlHead: 'http://10.190.0.33'
+    urlHead: 'http://10.190.0.33',
+    mockData: true
 };

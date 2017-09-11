@@ -8,10 +8,10 @@ export const rootRouterConfig: Routes = [
     },
     {
         path: 'index',
-        loadChildren: './index/index.module#IndexModule'
+        loadChildren: 'app/index/index.module#IndexModule'
     },
     {
         path: 'user',
-        loadChildren: './user/user.module#UserModule'
+        loadChildren: 'app/user/user.module#UserModule'
     }
 ];

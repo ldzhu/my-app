@@ -1,7 +1,20 @@
 <kendo-grid [data]="sysUsers">
-    <kendo-grid-column field="userName" i18n-title title="用户名称"></kendo-grid-column>
+    <kendo-grid-column field="userName" i18n-title title="用户名"></kendo-grid-column>
     <kendo-grid-column field="staffName" i18n-title title="员工姓名"></kendo-grid-column>
     <kendo-grid-column field="staffNum" i18n-title title="员工编码"></kendo-grid-column>
     <kendo-grid-column field="description" i18n-title title="描述"></kendo-grid-column>
-    <kendo-grid-column field="manageDomainName" i18n-title title="管理域名称"></kendo-grid-column>
+    <kendo-grid-column field="manageDomainName" i18n-title title="管理域"></kendo-grid-column>
 </kendo-grid>
+
+<!--<h3>Numbers</h3>
+<ul>
+    <li>{{decimal | kendoNumber:'c' }}</li>
+    <li>{{stringNumber | kendoNumber:'p' }}</li>
+    <li>{{int | kendoNumber:'##.00' }}</li>
+</ul>
+<h3>Dates</h3>
+<ul>
+    <li>{{date | kendoDate }}</li>
+    <li>{{milliseconds | kendoDate: 'M/dd/yyy' }}</li>
+    <li>{{stringDate | kendoDate: 'G' }}</li>
+</ul>-->

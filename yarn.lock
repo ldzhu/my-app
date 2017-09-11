@@ -171,6 +171,14 @@
     magic-string "^0.22.3"
     source-map "^0.5.6"
 
+"@ngx-translate/core@^8.0.0":
+  version "8.0.0"
+  resolved "http://registry.npm.taobao.org/@ngx-translate/core/download/@ngx-translate/core-8.0.0.tgz#751fd6b512d80f3a748d2de8dfc96dfefa29afe0"
+
+"@ngx-translate/http-loader@^1.0.2":
+  version "1.0.2"
+  resolved "http://registry.npm.taobao.org/@ngx-translate/http-loader/download/@ngx-translate/http-loader-1.0.2.tgz#cd4aa2cb73e400346dacaae2dac5d29dc58c298a"
+
 "@progress/kendo-angular-dateinputs@^1.0.6":
   version "1.1.0"
   resolved "http://registry.npm.taobao.org/@progress/kendo-angular-dateinputs/download/@progress/kendo-angular-dateinputs-1.1.0.tgz#6735b71c06ee5cb7fe011c7c3c34d3f96dcda5b5"
@@ -1157,7 +1165,7 @@ combined-stream@^1.0.5, combined-stream@~1.0.5:
   dependencies:
     delayed-stream "~1.0.0"
 
-commander@2.11.x, commander@~2.11.0:
+commander@*, commander@2.11.x, commander@~2.11.0:
   version "2.11.0"
   resolved "http://registry.npm.taobao.org/commander/download/commander-2.11.0.tgz#157152fd1e7a6c8d98a5b715cf376df928004563"
 
@@ -3641,6 +3649,12 @@ mkdirp@0.5.x, "mkdirp@>=0.5 0", mkdirp@^0.5.0, mkdirp@^0.5.1, mkdirp@~0.5.0, mkd
   resolved "http://registry.npm.taobao.org/mkdirp/download/mkdirp-0.5.1.tgz#30057438eac6cf7f8c4767f38648d6697d75c903"
   dependencies:
     minimist "0.0.8"
+
+mockjs@^1.0.1-beta3:
+  version "1.0.1-beta3"
+  resolved "http://registry.npm.taobao.org/mockjs/download/mockjs-1.0.1-beta3.tgz#d234f3c27256397564f2c955142e891909537209"
+  dependencies:
+    commander "*"
 
 ms@0.7.1:
   version "0.7.1"

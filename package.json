@@ -14,10 +14,14 @@
         "test-custom": "karma start ./karma.conf.js",
         "pree2e-custom": "webdriver-manager update --standalone false --gecko false --quiet",
         "e2e-custom": "protractor ./protractor.conf.js",
-        "i18n-custom": "./node_modules/.bin/ng-xi18n --i18nFormat=xlf",
-        "i18n:extract": "./node_modules/.bin/ng-xi18n --i18nFormat=xlf",
-        "i18n:create": "cd src/i18n && copy /y .\\messages.xlf .\\messages.zh-CN.xlf && copy /y .\\messages.xlf .\\messages.en-US.xlf",
-        "i18n:kendo-translate": "./node_modules/.bin/kendo-translate src/i18n/messages.zh-CN.xlf --locale zh-CN"
+        "i18n-extract": "ng-xi18n --i18nFormat=xliff --outFile=src/i18n/messages.xlf",
+        "i18n-kendo-translate:zh": "./node_modules/.bin/kendo-translate src/i18n/messages.zh.xlf --locale zh",
+        "i18n-kendo-translate:en": "./node_modules/.bin/kendo-translate src/i18n/messages.en.xlf --locale en",
+        "start-i18n:zh": "ng serve --aot --i18n-file=src/i18n/messages.zh.xlf --locale=zh",
+        "start-i18n:en": "ng serve --aot --i18n-file=src/i18n/messages.en.xlf --locale=en",
+        "build-i18n:zh": "ng build --output-path dist/zh --aot -prod --i18n-file=src/i18n/messages.zh.xlf --i18n-format=xlf --locale=zh",
+        "build-i18n:en": "ng build --output-path dist/en --aot -prod --i18n-file=src/i18n/messages.en.xlf --i18n-format=xlf --locale=en",
+        "build-all": "npm run build-i18n:zh && npm run build-i18n:en"
     },
     "private": true,
     "dependencies": {
@@ -30,6 +34,8 @@
         "@angular/platform-browser": "^4.2.4",
         "@angular/platform-browser-dynamic": "^4.2.4",
         "@angular/router": "^4.2.4",
+        "@ngx-translate/core": "^8.0.0",
+        "@ngx-translate/http-loader": "^1.0.2",
         "@progress/kendo-angular-dateinputs": "^1.0.6",
         "@progress/kendo-angular-dropdowns": "^1.1.3",
         "@progress/kendo-angular-excel-export": "^1.0.3",
@@ -43,6 +49,7 @@
         "@progress/kendo-theme-default": "^2.40.2",
         "core-js": "^2.4.1",
         "jquery": "^3.2.1",
+        "mockjs": "^1.0.1-beta3",
         "rxjs": "^5.4.2",
         "zone.js": "^0.8.14"
     },
