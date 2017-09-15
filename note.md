@@ -58,3 +58,6 @@ In web.xml
 - CSS模块化
     
 
+参考项目：
+ng2-tut
+[example-app](git+https://github.com/ngrx/example-app.git)
