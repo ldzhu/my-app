@@ -1,1 +1,18 @@
-管理域
+<div>管理域</div>
+<br/>
+<div>
+    <div>
+        <label>新增管理域：</label>
+        <input title="管理域名称" placeholder="请输入管理域名称并回车" (keyup.enter)="addDomain($event)">
+    </div>
+    <br/>
+
+    <ul>
+        <li *ngFor="let domain of domains|async">
+            <span>{{domain.id}}</span>
+            <span>{{domain.name}}</span>
+            <button (click)="removeDomain(); $event.stopPropagation()">删除</button>
+        </li>
+    </ul>
+
+</div>

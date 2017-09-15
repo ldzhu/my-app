@@ -1,4 +1,4 @@
-<div class="pon-head" [ngClass]="{'is-absolute': options.isAbsolute}">
+<div class="pon-head" fhI18nStyle [ngClass]="{'is-absolute': options.isAbsolute}">
     <div class="logo">
         <div class="main" *ngIf="options.mNo === 0"></div>
 
@@ -27,58 +27,11 @@
     </ul>
 
     <span *ngIf="options.isIndex" class="map_focus">
-        <span class="bkg" [ngClass]="{'active': isFocus}" ></span>
+        <span class="bkg" [ngClass]="{'active': isFocus}"></span>
         <span class="content">
-            <span><a routerLink="navigate" (click)="isFocus = false;" i18n>首页地图</a></span>
-            <span><a routerLink="focus" (click)="isFocus = true;" i18n>首页关注</a></span>
+            <span><a routerLink="navigate" (click)="isFocus = false;">{{"index.map"|translate}}</a></span>
+            <span><a routerLink="focus" (click)="isFocus = true;">{{"index.focus"|translate}}</a></span>
         </span>
     </span>
-    <!--
-        <span ng-if="lang == 'zh' && options.mNo === 1" class="logo2"></span>
-
-        <span class="login_info">
-            <a ng-if="role" class="name">{{role.userName}}</a>
-            <a ng-if="role" data-toggle="modal" data-target="#mdfpswd-div">{{i18n.MDYPWD}}</a>
-            <a ng-if="role" ng-click="quit()">{{i18n.LOGOUT}}</a>
-        </span>
-
-        <div id="mdfpswd-div" class="modal fade " role="dialog" data-backdrop="static">
-            <div class="modal-dialog ">
-                <div class="modal-content">
-                    <div class="title">{{i18n.MODULE.USER_MANAGEMENT.mdyPswd}}</div>
-
-
-                    <table>
-                        <tr class="errmsg" ng-show="errMsg">
-                            <td></td>
-                            <td class="btns">
-                                <span><f-errormessage>{{errMsg}}</f-errormessage></span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>{{i18n.MODULE.USER_MANAGEMENT.oldPswd}}</td>
-                            <td><input type="password" ng-model="info.oldPwd"/></td>
-                        </tr>
-                        <tr>
-                            <td>{{i18n.MODULE.USER_MANAGEMENT.newPswd}}</td>
-                            <td><input type="password" ng-model="info.newPwd"/></td>
-                        </tr>
-                        <tr>
-                            <td>{{i18n.MODULE.USER_MANAGEMENT.ensurePswd}}</td>
-                            <td><span class="tip">{{i18n.TIP.t10}}</span><input type="password" ng-model="info.ensurePwd"/></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td class="btns">
-                                <button class="btn okbtn" ng-click="modifyPsw()">{{i18n.OK}}</button>
-                                <button class="btn cancelbtn" data-dismiss="modal" data-target="#mdfpswd-div">{{i18n.CANCEL}}</button>
-                            </td>
-                        </tr>
-                    </table>
-
-                </div>
-            </div>
-        </div>
-    -->
 
 </div>

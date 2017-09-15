@@ -1,4 +1,5 @@
 import {Component, OnInit, Input, ViewEncapsulation} from '@angular/core';
+import {BaseComponent} from '../base.component';
 
 @Component({
     selector: 'pon-head',
@@ -6,11 +7,12 @@ import {Component, OnInit, Input, ViewEncapsulation} from '@angular/core';
     styleUrls: ['./head.component.scss'],
     encapsulation: ViewEncapsulation.None
 })
-export class HeadComponent implements OnInit {
+export class HeadComponent extends BaseComponent implements OnInit {
     @Input() options: any;
     @Input() isFocus: boolean;
 
     constructor() {
+        super();
     }
 
     ngOnInit() {

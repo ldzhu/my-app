@@ -1,19 +1,21 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Title} from '@angular/platform-browser';
+import {BaseComponent} from '../common/component/base.component';
 
 @Component({
     selector: 'app-index',
     templateUrl: './index.component.html',
     styleUrls: ['./index.component.scss']
 })
-export class IndexComponent implements OnInit {
+export class IndexComponent extends BaseComponent implements OnInit {
     @Input() navigateOptions: any;
 
     public constructor(private titleService: Title) {
+        super();
     }
 
     ngOnInit() {
-        this.setTitle('网络流量与质量分析系统');
+        this.setTitle(this.translate.instant('title'));
         this.setOptions();
     }
 
@@ -24,7 +26,7 @@ export class IndexComponent implements OnInit {
     public setOptions() {
         this.navigateOptions = {
             mNo: 0,
-            mName: '首页',
+            mName: this.translate.instant('index.name'),
             isIndex: true,
             isAbsolute: true,
             menu: []

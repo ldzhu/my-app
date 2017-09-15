@@ -1,9 +1,18 @@
-<kendo-grid [data]="sysUsers">
+<!-- Angular\Kendo 官方国际化使用，暂未采用该方案 -->
+<!--<kendo-grid [data]="sysUsers">
     <kendo-grid-column field="userName" i18n-title title="用户名"></kendo-grid-column>
     <kendo-grid-column field="staffName" i18n-title title="员工姓名"></kendo-grid-column>
     <kendo-grid-column field="staffNum" i18n-title title="员工编码"></kendo-grid-column>
     <kendo-grid-column field="description" i18n-title title="描述"></kendo-grid-column>
     <kendo-grid-column field="manageDomainName" i18n-title title="管理域"></kendo-grid-column>
+</kendo-grid>-->
+
+<kendo-grid [data]="sysUsers">
+    <kendo-grid-column field="userName" title="{{'user.userName'|translate}}"></kendo-grid-column>
+    <kendo-grid-column field="staffName" title="{{'user.staffName'|translate}}"></kendo-grid-column>
+    <kendo-grid-column field="staffNum" title="{{'user.staffCode'|translate}}"></kendo-grid-column>
+    <kendo-grid-column field="description" title="{{'user.desc'|translate}}"></kendo-grid-column>
+    <kendo-grid-column field="manageDomainName" title="{{'user.domainName'|translate}}"></kendo-grid-column>
 </kendo-grid>
 
 <!--<h3>Numbers</h3>

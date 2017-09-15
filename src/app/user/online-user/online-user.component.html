@@ -1,4 +1,12 @@
-<div i18n="online user title">在线用户</div>
+<!-- ng-translate在指令中使用 -->
+<div [translate]="'hello'"></div>
+<!-- ng-translate在管道中使用 -->
+<div>{{"test"|translate|json}}</div>
+
+<!-- Angular官方国际化使用 -->
+<div i18n="online user title">Demo: Angular官方国际化使用-在线用户</div>
+
+<!-- Angular集成Kendo for jQuery -->
 <kendo-fiberhome-chart chartId="onlineUserChart" [options]="onlineUserChartOption"
                        (chart)="afterOnlineUserChartInit($event)"></kendo-fiberhome-chart>
 

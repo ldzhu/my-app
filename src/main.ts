@@ -3,13 +3,13 @@ import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 
 import {AppModule} from './app/app.module';
 import {environment} from './environments/environment';
-import getLocaleFromBackend from './locale';
+import getLocale from './locale';
 
 if (environment.production) {
     enableProdMode();
 }
 
-getLocaleFromBackend().then(response => {
+getLocale().then(response => {
     const options = {
         provide: LOCALE_ID, useValue: response.lang
     };

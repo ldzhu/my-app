@@ -1,15 +1,14 @@
-/**
- * Created by ldzhu on 2016/12/23.
- */
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
-    selector: 'login',
+    selector: 'app-index-login',
     templateUrl: './login.component.html'
 })
 export class LoginComponent implements OnInit {
-    constructor() { }
+    constructor() {
+    }
 
-    ngOnInit() { }
+    ngOnInit() {
+    }
 
 }

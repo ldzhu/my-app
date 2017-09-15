@@ -1,19 +1,21 @@
 import {Component, OnInit, Input} from '@angular/core';
 import {Title} from '@angular/platform-browser';
+import {BaseComponent} from '../common/component/base.component';
 
 @Component({
     selector: 'app-user',
     templateUrl: './user.component.html',
     styleUrls: ['./user.component.scss']
 })
-export class UserComponent implements OnInit {
+export class UserComponent extends BaseComponent implements OnInit {
     @Input() navigateOptions: any;
 
     public constructor(private titleService: Title) {
+        super();
     }
 
     ngOnInit() {
-        this.setTitle('用户管理');
+        this.setTitle(this.translate.instant('user.userManage'));
         this.setOptions();
     }
 
@@ -24,16 +26,16 @@ export class UserComponent implements OnInit {
     public setOptions() {
         this.navigateOptions = {
             mNo: 5,
-            mName: '用户管理',
+            mName: this.translate.instant('user.userManage'),
             isAbsolute: true,
             menu: [{
-                name: '系统用户',
+                name: this.translate.instant('user.sysUser'),
                 routerLink: 'sys-user'
             }, {
-                name: '在线用户',
+                name: this.translate.instant('user.onlineUser'),
                 routerLink: 'online-user'
             }, {
-                name: '管理域',
+                name: this.translate.instant('user.domainManage'),
                 routerLink: 'domain-mgr'
             }]
         };

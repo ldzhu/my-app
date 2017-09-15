@@ -1,12 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {BaseComponent} from '../../common/component/base.component';
 
 @Component({
-    selector: 'focus',
+    selector: 'app-index-focus',
     templateUrl: './focus.component.html'
 })
-export class FocusComponent implements OnInit {
-    constructor() { }
+export class FocusComponent extends BaseComponent implements OnInit {
+    constructor() {
+        super();
+    }
 
-    ngOnInit() { }
+    ngOnInit() {
+    }
 
 }

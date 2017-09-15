@@ -1,23 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~@progress/kendo-theme-default/scss/all';
-
-$min-width: 1400px;
-$min-height: 600px;
-
-* {
-  font-family: Arial, Microsoft YaHei, sans-serif;
-  margin: 0;
-  padding: 0;
-
-}
-
-body {
-  min-width: $min-width;
-  min-height: $min-height;
-}
-
-body, html {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-}
+/**
+ * Angular-cli生成的骨架工程定义此处可以写全局样式、以及引入外部样式；
+ * 此处统一将全局样式写入app.scss文件中，本文件仅引入外部样式
+ */
+@import 'app/app';

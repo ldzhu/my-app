@@ -1,12 +1,14 @@
 import {Component, OnInit} from '@angular/core';
+import {BaseComponent} from '../../common/component/base.component';
 
 @Component({
     selector: 'pon-index-navigate',
     templateUrl: './navigate.component.html',
     styleUrls: ['./navigate.component.scss']
 })
-export class NavigateComponent implements OnInit {
+export class NavigateComponent extends BaseComponent implements OnInit {
     constructor() {
+        super();
     }
 
     ngOnInit() {
@@ -17,19 +19,19 @@ export class NavigateComponent implements OnInit {
     }
 
     onMouseEnter(e: any, index: number) {
-        let ele = e.target;
-        ele.src = '../../../assets/img/b' + index + '.png';
+        const ele = e.target;
+        ele.src = '../../../assets/img/' + this.locale + '/b' + index + '.png';
     }
 
     onMouseLeave(e: any, index: number) {
-        let ele = e.target;
-        ele.src = '../../../assets/img/m' + index + '.png';
+        const ele = e.target;
+        ele.src = '../../../assets/img/' + this.locale + '/m' + index + '.png';
     }
 
     private openModule(mType: number) {
-        let tagName = 'tag' + mType;
+        const tagName = 'tag' + mType;
         if (mType === 1) {
-            //window.open("/pon/health/index.html", tagName);
+            // window.open("/pon/health/index.html", tagName);
         } else if (mType === 2) {
             // window.open("/pon/opt/index.html", tagName);
         } else if (mType === 3) {
@@ -37,11 +39,11 @@ export class NavigateComponent implements OnInit {
         } else if (mType === 4) {
             // window.open("/pon/report/index.html", tagName);
         } else if (mType === 5) {
-            window.open("/user", tagName);
+            window.open('/user', tagName);
         } else if (mType === 6) {
             // window.open("/pon/log/index.html", tagName);
         } else if (mType === 7) {
-            //用户主动进入系统设置模块
+            // 用户主动进入系统设置模块
             // localStorage.setItem('license', 'false');
             // window.open("/pon/setting/index.html", tagName);
         }

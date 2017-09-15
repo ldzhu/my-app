@@ -1,10 +1,21 @@
 #login {
-    background-image: url("../img/login.jpg");
+    background-image: url("../../../assets/img/login.jpg");
     background-size: cover;
     #login-div {
         width: 663px;
         height: 382px;
-        background-image: url("../img/#{$img_folder}/logindiv.png");
         background-size: cover;
+    }
+}
+
+#login.zh-CN {
+    #login-div {
+        background-image: url("../../../assets/img/zh-CN/logindiv.png");
+    }
+}
+
+#login.en-US {
+    #login-div {
+        background-image: url("../../../assets/img/en-US/logindiv.png");
     }
 }

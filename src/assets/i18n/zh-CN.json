@@ -1,3 +1,24 @@
 {
-    "HELLO": "你好，Angular！"
+    "hello": "你好，Angular！",
+    "test": {
+        "name": "用户名",
+        "sex": "性别"
+    },
+    "title": "网络流量与质量分析系统",
+    "index": {
+        "name": "首页",
+        "map": "首页地图",
+        "focus": "首页关注"
+    },
+    "user": {
+        "userManage": "用户管理",
+        "sysUser": "系统用户",
+        "onlineUser": "在线用户",
+        "domainManage": "管理域",
+        "userName": "用户名",
+        "staffName": "员工姓名",
+        "staffCode": "员工编码",
+        "desc": "描述",
+        "domainName": "管理域"
+    }
 }

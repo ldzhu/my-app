@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
     selector: 'pon-user-online-user',
@@ -12,7 +13,11 @@ export class OnlineUserComponent implements OnInit {
     onlineUserChart: any;
     sysUserChart: any;
 
-    constructor() {
+    constructor(private translate: TranslateService) {
+        // 同步调用
+        console.log(translate.instant('test.name'));
+        // 异步调用
+        translate.get('test.name').subscribe(res => console.log(res));
     }
 
     ngOnInit() {

@@ -1,4 +1,5 @@
 import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {RouterModule} from '@angular/router';
 import {HttpModule} from '@angular/http';
 
@@ -15,9 +16,11 @@ import {OnlineUserComponent} from './online-user/online-user.component';
 import {UserService} from './shared/user.service';
 
 import './shared/mock.data';
+import {DomainMgrService} from './domain-mgr/domain-mgr.service';
 
 @NgModule({
     imports: [
+        CommonModule,
         RouterModule,
         RouterModule.forChild(userRouterConfig),
         TranslateModule.forChild(),
@@ -33,7 +36,8 @@ import './shared/mock.data';
         DomainMgrComponent
     ],
     providers: [
-        UserService
+        UserService,
+        DomainMgrService
     ],
 })
 export class UserModule {

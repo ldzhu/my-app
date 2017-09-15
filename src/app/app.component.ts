@@ -1,5 +1,5 @@
 import {Component, Inject, LOCALE_ID, OnInit} from '@angular/core';
-import {TranslateService} from "@ngx-translate/core";
+import {TranslateService} from '@ngx-translate/core';
 
 declare const jQuery: any;
 
@@ -12,8 +12,6 @@ export class AppComponent implements OnInit {
     title = 'app';
 
     constructor(@Inject(LOCALE_ID) localeId, translate: TranslateService) {
-        console.log(localeId);
-
         translate.addLangs(['zh-CN', 'en-US']);
         translate.setDefaultLang('zh-CN');
         translate.use(localeId);

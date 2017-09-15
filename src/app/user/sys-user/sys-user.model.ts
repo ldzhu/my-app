@@ -1,4 +1,4 @@
-export class SysUser {
+export interface SysUser {
     id: string;
     description: string;
     locked: boolean;
