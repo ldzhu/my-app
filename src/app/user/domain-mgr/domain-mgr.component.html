@@ -11,7 +11,7 @@
         <li *ngFor="let domain of domains|async">
             <span>{{domain.id}}</span>
             <span>{{domain.name}}</span>
-            <button (click)="removeDomain(); $event.stopPropagation()">删除</button>
+            <button (click)="removeDomain(domain); $event.stopPropagation()">删除</button>
         </li>
     </ul>
 

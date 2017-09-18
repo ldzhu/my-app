@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 
-import {SysUser} from './sys-user.model';
+import {SysUser} from '../../common/model/sys-user.model';
 import {UserService} from '../shared/user.service';
 
 @Component({

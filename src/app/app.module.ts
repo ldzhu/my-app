@@ -7,15 +7,14 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {StoreModule} from '@ngrx/store';
+import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 
 import {InitAppInjector} from './app.consts';
 import {rootRouterConfig} from './app.routes';
 import {AppComponent} from './app.component';
+import {reducer} from './common/redux/reducer/index';
 import {IndexModule} from './index/index.module';
 import {UserModule} from './user/user.module';
-import {todoReducer} from './common/redux/reducer/todo.reducer';
-import {authReducer} from './common/redux/reducer/auth.reducer';
-
 
 /**
  * AoT requires an exported function for factories.
@@ -50,7 +49,8 @@ export function GetLanguage(): string {
                 deps: [HttpClient]
             }
         }),
-        StoreModule.provideStore({todoReducer, authReducer}),
+        StoreModule.provideStore(reducer),
+        StoreDevtoolsModule.instrumentOnlyWithExtension(),
         RouterModule.forRoot(rootRouterConfig, {useHash: false}),
         IndexModule,
         UserModule

@@ -42,5 +42,31 @@ if (environment.mockData) {
             }
         );
     });
+    Mock.mock('/user-manage/allDomains', function () {
+        return Mock.mock(
+            {
+                'success': true,
+                'errorMsg': '成功',
+                'errorCode': '0000',
+                'data|1-10': [{
+                    'id|+1': 10,
+                    name: '@city'
+                }]
+            }
+        );
+    });
+    Mock.mock('/user-manage/domain', function () {
+        return Mock.mock(
+            {
+                'success': true,
+                'errorMsg': '成功',
+                'errorCode': '0000',
+                'data': {
+                    id: '@integer',
+                    name: '@city'
+                }
+            }
+        );
+    });
 }
 
