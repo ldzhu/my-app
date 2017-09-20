@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {TranslateService} from "@ngx-translate/core";
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
     selector: 'pon-user-online-user',
@@ -7,12 +7,23 @@ import {TranslateService} from "@ngx-translate/core";
     styleUrls: ['./online-user.component.scss']
 })
 export class OnlineUserComponent implements OnInit {
+    /*
+     * kendo for jQuery的chart配置
+     */
     onlineUserChartOption: any;
     sysUserChartOption: any;
 
+    /*
+     * kendo for jQuery的chart对象，通过Angular的子组件向父组件传递消息来实现将kendo-fiberhome-chart
+     * 组件里获取的chart对象传递给使用该组件的父组件，以便调用chart对象相关方法。
+     */
     onlineUserChart: any;
     sysUserChart: any;
 
+    /*
+     * 注册翻译服务，以及获取value的两种方式。（统一在BaseComponent注册翻译服务，无需每个组件都自行注册）
+     * @param {TranslateService} translate
+     */
     constructor(private translate: TranslateService) {
         // 同步调用
         console.log(translate.instant('test.name'));

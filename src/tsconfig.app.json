@@ -6,9 +6,6 @@
         "module": "es2015",
         "types": []
     },
-    "angularCompilerOptions": {
-        "genDir": "i18n"
-    },
     "exclude": [
         "test.ts",
         "**/*.spec.ts"

@@ -3,7 +3,7 @@ import {TranslateService} from '@ngx-translate/core';
 import {APP_INJECTOR} from '../../app.consts';
 
 /**
- * 父组件
+ * 父组件，基类，提供其他组件公共的服务、属性、方法等。
  */
 export class BaseComponent implements OnInit {
     // 当前语言环境

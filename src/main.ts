@@ -1,4 +1,7 @@
-import {enableProdMode, LOCALE_ID} from '@angular/core';
+/**
+ * 应用启动主入口
+ */
+import {enableProdMode} from '@angular/core';
 import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 
 import {AppModule} from './app/app.module';
@@ -9,14 +12,22 @@ if (environment.production) {
     enableProdMode();
 }
 
+// 在获取到语言环境之后启动应用
 getLocale().then(response => {
+    /*
+    // 这种注入方式在AppComponent里面并拿不到LOCALE_ID
     const options = {
         provide: LOCALE_ID, useValue: response.lang
     };
 
-    // TODO 这种注入方式在AppComponent里面并拿不到LOCALE_ID,是否在此处写入localStorage？
-
     platformBrowserDynamic().bootstrapModule(AppModule, [options]);
+    */
+
+    // 将语言环境写入localStorage
+    localStorage.setItem('lang', response.lang);
+
+    // 启动应用
+    platformBrowserDynamic().bootstrapModule(AppModule);
 
 }).catch(error => {
     console.error(error);

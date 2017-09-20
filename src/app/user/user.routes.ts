@@ -5,6 +5,9 @@ import {SysUserComponent} from './sys-user/sys-user.component';
 import {OnlineUserComponent} from './online-user/online-user.component';
 import {DomainMgrComponent} from './domain-mgr/domain-mgr.component';
 
+/**
+ * 用户管理模块路由
+ */
 export const userRouterConfig: Routes = [
     {
         path: 'user',

@@ -13,7 +13,7 @@ export class UserService {
 
     getSysUsers(): Promise<any> {
         return this.http.get(UrlService.getURL(URL_CONST.allUsers))
-            .toPromise()
+            .toPromise() // 不使用Angular http模块默认的Observable，而是转成promise使用
             .then(response => response.json())
             .catch(error => Promise.reject(error.message || error));
     }

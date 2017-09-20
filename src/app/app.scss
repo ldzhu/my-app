@@ -1,5 +1,6 @@
-/* 全局样式 */
-
+/*
+ * 全局样式：在styles.scss中引入，全局有效，不受Angular样式封装的影响。
+ */
 $min-width: 1400px;
 $min-height: 600px;
 
@@ -36,4 +37,3 @@ body, html {
     -webkit-text-stroke-width: 0.2px;
     -moz-osx-font-smoothing: grayscale;
 }
-

@@ -3,11 +3,12 @@ import {Http} from '@angular/http';
 
 import {Observable} from 'rxjs/Observable';
 import {Store} from '@ngrx/store';
+
 import {ADD_DOMAIN, FETCH_FROM_API, REMOVE_DOMAIN} from '../../common/redux/action/domain.action';
 import {Domain} from '../../common/model/domain.model';
+import {AppState} from '../../common/redux/store/index';
 import {UrlService} from '../../common/service/url.service';
 import {URL_CONST} from '../../common/const/url.consts';
-import {AppState} from '../../common/redux/store/index';
 
 @Injectable()
 export class DomainMgrService {
