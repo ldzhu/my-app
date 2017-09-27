@@ -224,6 +224,15 @@ declare const jQuery: any;
 
 - 国际化资源加载
 在`src/app/app.module.ts`中import TranslateModule时，通过HttpLoaderFactory工厂加载国际化资源。
+```javascript
+TranslateModule.forRoot({
+    loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+    }
+})
+```
 
 - 国际化服务初始化
 在`src/app/app.component.ts`的构造器中初始化语言服务（单例）。
@@ -263,85 +272,119 @@ declare const jQuery: any;
 > 研究过程中发现的`kendo-translate`的[bug](https://github.com/telerik/kendo-angular-messages/issues/44)。
 
 
-
-
-
-
-
-
-
-
-
-
-
 #### UrlService使用
-- 在`src/environments/`环境变量中
+- 在`src/environments`环境变量中配置urlHead配置项，开发坏境设置为Java后台开发调试环境，生产环境保持默认空字符串。这样做的好处是在开发期间不用频繁修改urlHead，也不会影响生产环境。
+- 在`src/app/common/const/url.consts.ts`常量中统一管理访问后台的接口地址。
+- 调用`src/app/common/service/user.service.ts`中定义的UrlService公共服务的getURL静态方法来获取接口访问地址。
+    `UrlService.getURL(URL_CONST.allUsers)`
+    
+    此方法兼容开发环境Mock数据、开发环境与后台联调以及生产环境。
 
 #### Redux
 ##### Redux技术原理
+- 参考文档redux-in-chinese.pdf;
+- [Angular中使用Redux](http://www.jianshu.com/p/3cf03ae2eac1);
+- [官方示例](https://github.com/ngrx/example-app)
+- [示例](https://github.com/wpcfan/awesome-tutorials/tree/master/angular2/ng2-tut);
+
 ##### Action定义
+action要避免重复，参考官方示例，建议命名：
+```
+export const ADD_DOMAIN =       '[Domain] Add';
+export const REMOVE_DOMAIN =    '[Domain] Remove';
+```
+
 ##### State划分
+- 按照模型进行State划分；
+- 划分的模型需要加入`src/app/common/redux/store/index.ts`的AppState接口中。
+
 ##### reducer加载
+- 按照划分的State分别创建对应的reducer；
+- 多个reducer在`src/app/common/redux/reducer/index.ts`中通过combineReducers函数合并；
+- 在`src/app/app.module.ts`中导入StoreModule时加载reducer。
+    ```javascript
+    StoreModule.provideStore(reducer)
+    ```
 
 #### RxJS异步编程
+- [RxJS源码](https://github.com/ReactiveX/rxjs)；
+- [RxJS官方API文档](http://reactivex.io/rxjs/)；
+- [RxJS博文](http://www.jianshu.com/p/869a3f74d3ca)
 
-#### 单元测试
-##### karma
-##### jasmine
-##### Angular core/testing包
+#### [Angular单元测试](https://angular.cn/guide/testing)：
+
+- karma：同AngularJS中使用的karma；
+- jasmine：类似于Mocha；
+- Angular core/testing测试工具集。
 
 #### E2E测试
 e2e测试：[angular/protractor](https://github.com/angular/protractor)？暂未研究
 
 #### Mock.js模拟接口数据
+1. 在`src/environments/environment.ts`环境变量中打开mockData开关`mockData: true`；
+1. 在`src/app/user/shared/mock.data.ts`文件中模拟接口数据（同AngularJS中使用方法）；
+1. 在`src/app/user/user.module.ts`中导入mock数据`import './shared/mock.data'`
 
-#### 使用chrome调试Typescript
-- 时光旅行器
-
-#### Yarn包管理
+#### 调试
+- 使用chrome调试Typescript
+- 使用chrome时光旅行器插件调试Redux
 
 ### 打包发布
-#### 使用Angular/cli自带命令打包
-#### 使用ng-ejected自行配置webpack
+- 使用Angular/cli自带命令打包
+    ```shell
+    ng build --prod
+    ```
+- 使用ng-ejected自行配置webpack
+    执行`ng eject`命令之后，当前项目会变成ejected项目，angular-cli会根据当前`.angular-cli.json`的配置生成`webpack.config.js`，并将`.angular-cli.json`的`project.ejected`配置项设置为true。此时不能使用angular-cli提供的命令行来执行serve、build、test等，需要自己写npm脚本来定制webpack。
+    
+    优先使用angular-cli提供的命令行来实现打包发布。如果确实需要自己定制webpack，可以采用上述方式来实现。如果项目已经是ejected项目，想要继续使用angular-cli命令行，将上述`project.ejected`配置项手动改为false即可。
 
 ### 杂项
-.editorconfig默认indent_size=2，修改为4有什么意见？
-nvm, yarn, python2, @angular/cli
-- build打包结果，loadChildren懒加载module时，useHash:false时，刷新会有404。原因：路由和 index.html访问的问题
-[解决办法](https://stackoverflow.com/questions/35284988/angular-2-404-error-occur-when-i-refresh-through-browser);
-[解决办法](https://github.com/angular-ui/ui-router/wiki/Frequently-Asked-Questions#how-to-configure-your-server-to-work-with-html5mode);
-需要在web容器里面加配置
-```java
-Java EE
-In web.xml
-
-<?xml version="1.0" encoding="UTF-8"?>
-<web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
-	<error-page>
-		<error-code>404</error-code>
-		<location>/</location>
-	</error-page>
-</web-app>
-```
+- 尽量使用最新版本的Webstorm来获得更好的支持。
+- [.editorconfig](http://editorconfig.org/)默认indent_size=2，修改为4有什么意见？
+- 使用[nvm](https://github.com/coreybutler/nvm-windows)管理Node.js
+- 使用[yarn](http://blog.csdn.net/crper/article/details/52796305)代替npm包[管理](http://web.jobbole.com/88459/)
+- 生产环境loadChildren懒加载module问题
+    使用`ng build --prod`打出生产环境的包时，由于使用loadChildren延迟加载路由，必须配置`useHash:false`(Restful风格的url)，刷新浏览器会有404。
+    
+    原因：路由和 index.html访问的问题。[解决办法](https://stackoverflow.com/questions/35284988/angular-2-404-error-occur-when-i-refresh-through-browser);[解决办法](https://github.com/angular-ui/ui-router/wiki/Frequently-Asked-Questions#how-to-configure-your-server-to-work-with-html5mode);
+    
+    需要在web容器里面加配置
+    ```java
+    Java EE
+    In web.xml
+    
+    <?xml version="1.0" encoding="UTF-8"?>
+    <web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+        <error-page>
+            <error-code>404</error-code>
+            <location>/</location>
+        </error-page>
+    </web-app>
+    ```
 
 ### 思考
 - 多应用开发架构
 - Swagger
 
-### 参考资料
+### 关键字
 Angular
 Typescript
-Angular-CLI
+Angular-cli
 @ngx/translate
-@ngrx
 Redux
 Redux TimeMachine Debugger
+@ngrx/store
 RxJS
+Sass
 Karma
 Jasmine
+e2e
+Protractor
 Kendo for Angular
 Mock.js
 Webpack
-Protractor
-TSLint
 Yarn
+TSLint
+Editorconfig
+

@@ -9,11 +9,13 @@
         "test": "ng test",
         "lint": "ng lint",
         "e2e": "ng e2e",
+
         "build-custom": "webpack",
         "start-custom": "webpack-dev-server --port=4200",
         "test-custom": "karma start ./karma.conf.js",
         "pree2e-custom": "webdriver-manager update --standalone false --gecko false --quiet",
         "e2e-custom": "protractor ./protractor.conf.js",
+
         "i18n-extract": "ng-xi18n --i18nFormat=xliff --outFile=src/i18n/messages.xlf",
         "i18n-kendo-translate:zh": "./node_modules/.bin/kendo-translate src/i18n/messages.zh.xlf --locale zh",
         "i18n-kendo-translate:en": "./node_modules/.bin/kendo-translate src/i18n/messages.en.xlf --locale en",

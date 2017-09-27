@@ -19,7 +19,7 @@ export class DomainMgrComponent implements OnInit {
      * RxJS-可观察对象，@Angular/http, @ngrx/store 均使用RxJS来实现
      * 参考：http://reactivex.io/rxjs/, http://www.jianshu.com/p/869a3f74d3ca
      */
-    domains: Observable<Domain[]>;
+    private domains: Observable<Domain[]>;
 
     constructor(private store$: Store<AppState>, private service: DomainMgrService) {
         this.service.getDomains().subscribe(() => {
