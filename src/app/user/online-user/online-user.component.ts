@@ -1,12 +1,13 @@
 import {Component, OnInit} from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
+import {BaseComponent} from '../../common/component/base.component';
 
 @Component({
     selector: 'pon-user-online-user',
     templateUrl: './online-user.component.html',
     styleUrls: ['./online-user.component.scss']
 })
-export class OnlineUserComponent implements OnInit {
+export class OnlineUserComponent extends BaseComponent implements OnInit {
     /*
      * kendo for jQuery的chart配置
      */
@@ -24,11 +25,14 @@ export class OnlineUserComponent implements OnInit {
      * 注册翻译服务，以及获取value的两种方式。（统一在BaseComponent注册翻译服务，无需每个组件都自行注册）
      * @param {TranslateService} translate
      */
-    constructor(private translate: TranslateService) {
+    constructor(private translateSrv: TranslateService) {
+        super();
         // 同步调用
-        console.log(translate.instant('test.name'));
+        console.log(translateSrv.instant('i18n.test.name'));
         // 异步调用
-        translate.get('test.name').subscribe(res => console.log(res));
+        translateSrv.get('i18n.test.name').subscribe(res => console.log(res));
+
+        console.log(this.i18n);
     }
 
     ngOnInit() {

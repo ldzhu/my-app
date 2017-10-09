@@ -1,7 +1,5 @@
 import {AfterViewInit, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-
-declare const $: any;
-declare const kendo: any;
+import {$} from '../../../app.consts';
 
 /**
  * kendo-fiberhome-chart组件，使用kendo for jQuery控件封装

@@ -19,6 +19,9 @@ export const APP_CONST: any = {};
  * 里通过调用InitAppInjector函数来实现注入器常量的初始化。
  */
 export let APP_INJECTOR: Injector;
+export let jQuery: any;
+export let $: any;
+export let kendo: any;
 
 /**
  * CommonJS modules export values. ES6 modules export bindings - live connections to values.
@@ -29,3 +32,13 @@ export let APP_INJECTOR: Injector;
 export function InitAppInjector(i: Injector) {
     APP_INJECTOR = i;
 }
+
+export function InitJQuery(_$) {
+    jQuery = _$;
+    $ = _$;
+}
+
+export function InitKendo(_kendo) {
+    kendo = _kendo;
+}
+

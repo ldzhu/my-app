@@ -22,15 +22,15 @@
 
     <ul *ngIf="options.menu">
         <li *ngFor="let item of options.menu" routerLinkActive="active">
-            <a [routerLink]="item.routerLink" i18n>{{item.name}}</a>
+            <a [routerLink]="item.routerLink">{{item.name}}</a>
         </li>
     </ul>
 
     <span *ngIf="options.isIndex" class="map_focus">
         <span class="bkg" [ngClass]="{'active': isFocus}"></span>
         <span class="content">
-            <span><a routerLink="navigate" (click)="isFocus = false;">{{"index.map"|translate}}</a></span>
-            <span><a routerLink="focus" (click)="isFocus = true;">{{"index.focus"|translate}}</a></span>
+            <span><a routerLink="navigate" (click)="isFocus = false;">{{"i18n.index.map"|translate}}</a></span>
+            <span><a routerLink="focus" (click)="isFocus = true;">{{"i18n.index.focus"|translate}}</a></span>
         </span>
     </span>
 

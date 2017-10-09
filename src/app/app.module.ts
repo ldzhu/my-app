@@ -18,12 +18,15 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {StoreModule} from '@ngrx/store';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 
-import {InitAppInjector} from './app.consts';
+import {InitAppInjector, InitJQuery, InitKendo} from './app.consts';
 import {rootRouterConfig} from './app.routes';
 import {AppComponent} from './app.component';
 import {reducer} from './common/redux/reducer/index';
 import {IndexModule} from './index/index.module';
 import {UserModule} from './user/user.module';
+
+declare const jQuery: any;
+declare const kendo: any;
 
 /**
  * AoT requires an exported function for factories.
@@ -77,8 +80,10 @@ export function GetLanguage(): string {
     bootstrap: [AppComponent]
 })
 export class AppModule {
-    // 初始化APP_INJECTOR常量
+    // 初始化APP_INJECTOR等全局常量
     constructor(private injector: Injector) {
         InitAppInjector(this.injector);
+        InitJQuery(jQuery);
+        InitKendo(kendo);
     }
 }

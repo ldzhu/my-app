@@ -1,5 +1,6 @@
 import {Component, Inject, LOCALE_ID, OnInit} from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
+import {jQuery} from './app.consts';
 
 /**
  *  jQuery等非TS的框架使用方法：
@@ -7,7 +8,7 @@ import {TranslateService} from '@ngx-translate/core';
  *  2. 在使用的地方通过declare进行常量声明，常量名和'jQuery'（JS中全局对象名）保持一致；
  *  3. 使用jQuery（如ngOnInit()中输出的是jQuery对象）
  */
-declare const jQuery: any;
+// declare const jQuery: any;
 
 @Component({
     selector: 'app-root',

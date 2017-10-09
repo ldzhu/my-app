@@ -15,7 +15,6 @@ import {SysUserComponent} from './sys-user/sys-user.component';
 import {DomainMgrComponent} from './domain-mgr/domain-mgr.component';
 import {OnlineUserComponent} from './online-user/online-user.component';
 import {DomainMgrService} from './domain-mgr/domain-mgr.service';
-
 /* 加载mock数据 */
 import './shared/mock.data';
 

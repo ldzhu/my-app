@@ -10,10 +10,13 @@ export class BaseComponent implements OnInit {
     public locale: string;
     // 国际化服务
     public translate: TranslateService;
+    // 国际化资源对象
+    public i18n: any;
 
     constructor() {
         this.locale = APP_INJECTOR.get(LOCALE_ID);
         this.translate = APP_INJECTOR.get(TranslateService);
+        this.i18n = this.translate.instant('i18n');
     }
 
     ngOnInit() {

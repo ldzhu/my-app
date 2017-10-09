@@ -197,7 +197,8 @@ export const rootRouterConfig: Routes = [
 
 #### 非TS框架集成
 ##### 集成jQuery框架
-1. 在`.angular-cli.json`配置文件`scripts`配置项中引入js文件；
+
+- 在`.angular-cli.json`配置文件`scripts`配置项中引入js文件；
 ```json
 "scripts": [
     "../node_modules/jquery/dist/jquery.js",
@@ -205,9 +206,31 @@ export const rootRouterConfig: Routes = [
 ],
 ```
 
-2. 在使用的地方通过declare进行常量声明，常量名和'jQuery'（JS中全局对象名）保持一致；
+- 在使用的地方通过declare进行常量声明，常量名和'jQuery'（JS中全局对象名）保持一致；
 ```javascript
 declare const jQuery: any;
+```
+
+- 为方便使用，`jQuery, kendo`等非TS全局对象统一在`src/app/app.consts.ts`里面定义，并在`src/app/app.module.ts`里面初始化。使用时仅导入即可。
+```javascript
+// app.consts.ts
+export let jQuery: any;
+export let $: any;
+
+export function InitJQuery(_$) {
+    jQuery = _$;
+    $ = _$;
+}
+```
+```javascript
+// app.module.ts
+declare const jQuery: any;
+
+export class AppModule {
+    constructor() {
+        InitJQuery(jQuery);
+    }
+}
 ```
 
 > .angular-cli.json 在scripts或styles添加文件之后需要重启`ng serve`
@@ -239,6 +262,9 @@ TranslateModule.forRoot({
 
 - 使用BaseComponent定义国际化服务
 定义父组件`src/app/common/component/base.component.ts`，在父组件里定义国际化服务并注入它的实例，其他组件只要继承BaseComponent即可使用`translate`服务。
+
+- 使用BaseComponent定义国际化资源对象
+在上述父组件里定义国际化资源属性`i18n`，并通过`translate`服务获取国际化资源文件的根节点`{"i18n": "..."}`并赋值给i18n，其他组件只要继承BaseComponent即可直接使用`i18n.user.userName`的方式来获取到词条。
 
 > 使用`src/app/app.consts.ts`定义的APP_INJECTOR常量来获取Angular注入器来手动注入`TranslateService`。如果使用依赖注入的方式，必然要在构造器声明`TranslateService`类型，这样子组件也需要直接依赖`TranslateService`，就失去了封装的意义。
 
