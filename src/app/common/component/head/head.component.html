@@ -29,8 +29,8 @@
     <span *ngIf="options.isIndex" class="map_focus">
         <span class="bkg" [ngClass]="{'active': isFocus}"></span>
         <span class="content">
-            <span><a routerLink="navigate" (click)="isFocus = false;">{{"i18n.index.map"|translate}}</a></span>
-            <span><a routerLink="focus" (click)="isFocus = true;">{{"i18n.index.focus"|translate}}</a></span>
+            <span><a routerLink="navigate" (click)="isFocus = false;">{{i18n.index.map}}</a></span>
+            <span><a routerLink="focus" (click)="isFocus = true;">{{i18n.index.focus}}</a></span>
         </span>
     </span>
 

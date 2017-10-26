@@ -15,7 +15,7 @@ export class IndexComponent extends BaseComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.setTitle(this.translate.instant('i18n.title'));
+        this.setTitle(this.i18n.title);
         this.setOptions();
     }
 
@@ -26,7 +26,7 @@ export class IndexComponent extends BaseComponent implements OnInit {
     public setOptions() {
         this.navigateOptions = {
             mNo: 0,
-            mName: this.translate.instant('i18n.index.name'),
+            mName: this.i18n.index.name,
             isIndex: true,
             isAbsolute: true,
             menu: []

@@ -9,13 +9,11 @@
         "test": "ng test",
         "lint": "ng lint",
         "e2e": "ng e2e",
-
         "build-custom": "webpack",
         "start-custom": "webpack-dev-server --port=4200",
         "test-custom": "karma start ./karma.conf.js",
         "pree2e-custom": "webdriver-manager update --standalone false --gecko false --quiet",
         "e2e-custom": "protractor ./protractor.conf.js",
-
         "i18n-extract": "ng-xi18n --i18nFormat=xliff --outFile=src/i18n/messages.xlf",
         "i18n-kendo-translate:zh": "./node_modules/.bin/kendo-translate src/i18n/messages.zh.xlf --locale zh",
         "i18n-kendo-translate:en": "./node_modules/.bin/kendo-translate src/i18n/messages.en.xlf --locale en",
@@ -39,8 +37,6 @@
         "@ngrx/core": "^1.2.0",
         "@ngrx/store": "2.2.3",
         "@ngrx/store-devtools": "3.2.2",
-        "@ngx-translate/core": "^8.0.0",
-        "@ngx-translate/http-loader": "^1.0.2",
         "@progress/kendo-angular-dateinputs": "^1.0.6",
         "@progress/kendo-angular-dropdowns": "^1.1.3",
         "@progress/kendo-angular-excel-export": "^1.0.3",
@@ -56,6 +52,7 @@
         "jquery": "^3.2.1",
         "mockjs": "^1.0.1-beta3",
         "ngrx-store-freeze": "^0.1.9",
+        "primeng": "^4.2.2",
         "rxjs": "^5.4.2",
         "zone.js": "^0.8.14"
     },

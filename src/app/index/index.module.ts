@@ -1,6 +1,5 @@
 import {NgModule} from '@angular/core';
 import {RouterModule} from '@angular/router';
-import {TranslateModule} from '@ngx-translate/core';
 
 import {PonCommonModule} from '../common/common.module';
 
@@ -14,7 +13,6 @@ import {FocusComponent} from './focus/focus.component';
     imports: [
         RouterModule,
         RouterModule.forChild(rootRouterConfig),
-        TranslateModule.forChild(),
         PonCommonModule
     ],
     exports: [IndexComponent],

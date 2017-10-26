@@ -23,8 +23,8 @@ export class UserComponent extends BaseComponent implements OnInit {
      * 参考：https://angular.cn/guide/lifecycle-hooks
      */
     ngOnInit() {
-        // 设置用户管理模块title，translate属性继承自BaseComponent基类。
-        this.setTitle(this.translate.instant('i18n.user.userManage'));
+        // 设置用户管理模块title，i18n属性继承自BaseComponent基类。
+        this.setTitle(this.i18n.user.userManage);
         // 设置用户管理模块导航配置，在head指令里使用。
         this.setOptions();
     }
@@ -42,16 +42,16 @@ export class UserComponent extends BaseComponent implements OnInit {
     public setOptions() {
         this.navigateOptions = {
             mNo: 5,
-            mName: this.translate.instant('i18n.user.userManage'),
+            mName: this.i18n.user.userManage,
             isAbsolute: true,
             menu: [{
-                name: this.translate.instant('i18n.user.sysUser'),
+                name: this.i18n.user.sysUser,
                 routerLink: 'sys-user'
             }, {
-                name: this.translate.instant('i18n.user.onlineUser'),
+                name: this.i18n.user.onlineUser,
                 routerLink: 'online-user'
             }, {
-                name: this.translate.instant('i18n.user.domainManage'),
+                name: this.i18n.user.domainManage,
                 routerLink: 'domain-mgr'
             }]
         };

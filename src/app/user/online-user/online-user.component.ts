@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {TranslateService} from '@ngx-translate/core';
 import {BaseComponent} from '../../common/component/base.component';
 
 @Component({
@@ -21,18 +20,8 @@ export class OnlineUserComponent extends BaseComponent implements OnInit {
     onlineUserChart: any;
     sysUserChart: any;
 
-    /*
-     * 注册翻译服务，以及获取value的两种方式。（统一在BaseComponent注册翻译服务，无需每个组件都自行注册）
-     * @param {TranslateService} translate
-     */
-    constructor(private translateSrv: TranslateService) {
+    constructor() {
         super();
-        // 同步调用
-        console.log(translateSrv.instant('i18n.test.name'));
-        // 异步调用
-        translateSrv.get('i18n.test.name').subscribe(res => console.log(res));
-
-        console.log(this.i18n);
     }
 
     ngOnInit() {

@@ -4,7 +4,6 @@ import {RouterModule} from '@angular/router';
 import {HttpModule} from '@angular/http';
 
 import {GridModule} from '@progress/kendo-angular-grid';
-import {TranslateModule} from '@ngx-translate/core';
 
 import {PonCommonModule} from '../common/common.module';
 
@@ -24,8 +23,6 @@ import './shared/mock.data';
         RouterModule,
         /* 导入路由模块：子模块使用forChild */
         RouterModule.forChild(userRouterConfig),
-        /* 导入翻译模块： 子模块使用forChild */
-        TranslateModule.forChild(),
         HttpModule,
         GridModule,
         PonCommonModule

@@ -1,5 +1,4 @@
-import {Component, Inject, LOCALE_ID, OnInit} from '@angular/core';
-import {TranslateService} from '@ngx-translate/core';
+import {Component, OnInit} from '@angular/core';
 import {jQuery} from './app.consts';
 
 /**
@@ -18,15 +17,7 @@ import {jQuery} from './app.consts';
 export class AppComponent implements OnInit {
     title = 'app';
 
-    constructor(@Inject(LOCALE_ID) localeId, translate: TranslateService) {
-        /*
-         * 初始化translate服务。由于服务是单例的，在App组件里初始化之后，在其他组件或服务里只需要通过依赖注入即可使用。
-         * 语言环境目前仅支持中文和英文，默认使用中文环境。通过内置的LOCALE_ID变量（已在AppModule里初始化）获取当前
-         * 语言环境，调用use方法来设置当前语言。
-         */
-        translate.addLangs(['zh-CN', 'en-US']);
-        translate.setDefaultLang('zh-CN');
-        translate.use(localeId);
+    constructor() {
     }
 
     ngOnInit() {
