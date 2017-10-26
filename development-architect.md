@@ -246,25 +246,22 @@ export class AppModule {
 通过`src/locale.ts`文件的getLocale函数获取当前语言环境。可以从Java后台接口获取，也可以从界面配置文件中获取。应用主入口`main.ts`调用getLocale函数获取语言环境之后，再启动应用。
 
 - 国际化资源加载
-在`src/app/app.module.ts`中import TranslateModule时，通过HttpLoaderFactory工厂加载国际化资源。
-```javascript
-TranslateModule.forRoot({
-    loader: {
-        provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
+    - 在`src/typings.d.ts`中定义JSON module。
+    ```javascript
+    declare module '*.json' {
+        const value: any;
+        export default value;
     }
-})
-```
-
-- 国际化服务初始化
-在`src/app/app.component.ts`的构造器中初始化语言服务（单例）。
-
-- 使用BaseComponent定义国际化服务
-定义父组件`src/app/common/component/base.component.ts`，在父组件里定义国际化服务并注入它的实例，其他组件只要继承BaseComponent即可使用`translate`服务。
+    ```
+    
+    - 在`src/app/common/component/base.component.ts`中导入国际化资源。
+    ```javascript
+    import * as zh_CN from '../../../assets/i18n/zh-CN.json';
+    import * as en_US from '../../../assets/i18n/en-US.json';
+    ```
 
 - 使用BaseComponent定义国际化资源对象
-在上述父组件里定义国际化资源属性`i18n`，并通过`translate`服务获取国际化资源文件的根节点`{"i18n": "..."}`并赋值给i18n，其他组件只要继承BaseComponent即可直接使用`i18n.user.userName`的方式来获取到词条。
+在上述父组件里定义国际化资源属性`i18n`，通过LOCALE_ID获取语言环境并将对应语言环境的国际化资源赋值给i18n，其他组件只要继承BaseComponent即可直接使用`i18n.user.userName`的方式来获取到词条。
 
 > 使用`src/app/app.consts.ts`定义的APP_INJECTOR常量来获取Angular注入器来手动注入`TranslateService`。如果使用依赖注入的方式，必然要在构造器声明`TranslateService`类型，这样子组件也需要直接依赖`TranslateService`，就失去了封装的意义。
 
